@@ -123,7 +123,7 @@ float4 main(PixelShaderInput input) : SV_TARGET
 	uint index = headers[_index].i;
 
 	int counter = 0;
-	while (counter < 10 && index != 0xFFFFFFFF) {
+	while (counter < 20 && index != 0xFFFFFFFF) {
 		if (rays[index].active == 1) {
 			float distance = 10000.0f;
 			float3 _normal = float3(0.0, 0.0, 0.0);

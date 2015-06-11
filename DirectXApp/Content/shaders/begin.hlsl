@@ -8,7 +8,7 @@ float4 main(PixelShaderInput input) : SV_TARGET
 
 	uint index = headers[_index].i;
 	int counter = 0;
-	while (counter < 10 && index != 0xFFFFFFFF) {
+	while (counter < 20 && index != 0xFFFFFFFF) {
 		Hit hit;
 		hit.distance = 10000.0f; //Avoid errors
 		hit.meshID = 0; //Null mesh

@@ -8,7 +8,7 @@ float4 main(PixelShaderInput input) : SV_TARGET
 	uint index = headers[_index].i;
 
 	int counter = 0;
-	while (counter < 10 && index != 0xFFFFFFFF) {
+	while (counter < 20 && index != 0xFFFFFFFF) {
 		if (rays[index].applyed == 0 && rays[index].active == 1 && hits[index].meshID == primitiveID) {
 			rays[index].origin += rays[index].direct * hits[index].distance;
 

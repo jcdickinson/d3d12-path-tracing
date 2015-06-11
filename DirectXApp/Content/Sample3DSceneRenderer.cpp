@@ -238,7 +238,7 @@ void Sample3DSceneRenderer::CreateDeviceDependentResources()
 
 		//////////////////////////RAYS UAV//////////////////////////
 
-		const unsigned rayCount = 2048*1024;
+		const unsigned rayCount = 2048*2048;
 		D3D12_UNORDERED_ACCESS_VIEW_DESC raysDesc(uavDescSource);
 
 		{
