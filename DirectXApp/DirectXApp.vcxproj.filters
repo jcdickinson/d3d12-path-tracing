@@ -86,9 +86,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Content\shaders\background.hlsl">
-      <Filter>Content\shaders</Filter>
-    </FxCompile>
     <FxCompile Include="Content\shaders\begin.hlsl">
       <Filter>Content\shaders</Filter>
     </FxCompile>
@@ -126,6 +123,9 @@
       <Filter>Content\shaders</Filter>
     </FxCompile>
     <FxCompile Include="cornell.hlsl">
+      <Filter>Content\shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Content\shaders\background.hlsl">
       <Filter>Content\shaders</Filter>
     </FxCompile>
   </ItemGroup>

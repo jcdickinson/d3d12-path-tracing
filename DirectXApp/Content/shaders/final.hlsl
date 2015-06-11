@@ -11,12 +11,13 @@ float4 main(PixelShaderInput input) : SV_TARGET
 	float3 sampled = float3(0.0, 0.0, 0.0);
 
 	int counter = 0;
-	while (counter < 100 && index != 0xFFFFFFFF) {
+	while (counter < 100) {
 		sampled += rays[index].final;
 		rays[index].active = 0;
 
 		index = rays[index].prev;
-		counter++;
+		++counter;
+		if (index == 0xFFFFFFFF) break;
 	}
 
 	accum[_index].color = color + sampled / counter;

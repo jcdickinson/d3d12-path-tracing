@@ -129,3 +129,15 @@ float3 randomDirectionInSphere(uint index) {
 
 	return normalize(float3(up, cos(around) * over, sin(around) * over));
 }
+
+void setRay(in uint index, inout Ray ray) {
+	rays[index] = ray;
+}
+
+void addRay(in uint coord, inout Ray ray) {
+	uint last = headers[coord].i; //Get current index
+	ray.prev = last; //Set previous
+	last = headers.IncrementCounter(); //Add new index
+	headers[coord].i = last; //Set latest index
+	rays[last] = ray; //Set latest ray
+}
