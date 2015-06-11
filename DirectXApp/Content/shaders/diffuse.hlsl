@@ -36,7 +36,7 @@ float4 main(PixelShaderInput input) : SV_TARGET
 			rays[index].direct = randomCosineWeightedDirectionInHemisphere(normalized, _index);
 			rays[index].color *= pow(mcolor, 2.2);
 
-			rays[index].origin += normalize(dot(rays[index].direct, hits[index].normal) * hits[index].normal) * 0.0001f;
+			rays[index].origin += normalize(dot(rays[index].direct, normalized) * normalized) * 0.0001f;
 			rays[index].applyed = 1;
 		}
 		index = rays[index].prev;

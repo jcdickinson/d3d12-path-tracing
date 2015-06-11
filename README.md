@@ -2,4 +2,4 @@
 
 First in world path tracer, made only in DirectX 12 API. 
 
-![Screenshot](/path_tracer_3.png)
+![Screenshot](/path_tracer_4.png)

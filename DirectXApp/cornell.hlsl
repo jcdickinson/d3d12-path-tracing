@@ -13,49 +13,62 @@ float4 main(PixelShaderInput input) : SV_TARGET
 		if (rays[index].applyed == 0 && rays[index].active == 1 && hits[index].meshID == primitiveID) {
 			float3 normalized = -normalize(dot(rays[index].direct, hits[index].normal) * hits[index].normal);
 
-			//Delay ray to 2
-			uint newIndex = index;
-			for (int i = 0;i < 1;i++) {
-				Ray newRay = rays[index];
-				newRay.prev = newIndex;
-				newIndex = headers.IncrementCounter();
-				headers[_index].i = newIndex;
-
-				newRay.origin += newRay.direct * hits[index].distance;
-				newRay.direct = randomCosineWeightedDirectionInHemisphere(normalized, _index);
-
-				if (newRay.origin.x > 1.0 - 0.0001f) {
-					newRay.color *= pow(float3(.75, .25, .25), 2.2);
-				}
-				else 
-				if(newRay.origin.x < -1.0 + 0.0001f){
-					newRay.color *= pow(float3(.25, .25, .75), 2.2);
-				}
-				else {
-					newRay.color *= pow(float3(.75, .75, .75), 2.2);
-				}
-
-				newRay.origin += normalize(dot(newRay.direct, hits[index].normal) * hits[index].normal) * 0.0001f;
-				newRay.applyed = 1;
-
-				rays[newIndex] = newRay;
-			}
-
 			rays[index].origin += rays[index].direct * hits[index].distance;
-			rays[index].direct = randomCosineWeightedDirectionInHemisphere(normalized, _index);
 
-			if (rays[index].origin.x > 1.0 - 0.0001f) {
-				rays[index].color *= pow(float3(.75, .25, .25), 2.2);
-			}
-			else
-				if (rays[index].origin.x < -1.0 + 0.0001f) {
-					rays[index].color *= pow(float3(.25, .25, .75), 2.2);
+			//If normal, than we can do
+			if (dot(rays[index].direct, hits[index].normal) < 0.0) {
+
+				if (rays[index].origin.y > 1.0 - 0.0001f && length(rays[index].origin.xz) < 0.3) {
+
+					rays[index].final = rays[index].color * pow(float3(1.0, 1.0, 1.0), 2.2) / pow(0.3, 2.0);
+					rays[index].active = 0;
+					rays[index].direct = randomCosineWeightedDirectionInHemisphere(normalized, _index);
+					rays[index].applyed = 1;
+
 				}
 				else {
-					rays[index].color *= pow(float3(.75, .75, .75), 2.2);
-				}
+					//Delay ray to 2
+					uint newIndex = index;
+					for (int i = 0;i < 1;i++) {
+						Ray newRay = rays[index];
+						newRay.prev = newIndex;
+						newIndex = headers.IncrementCounter();
+						headers[_index].i = newIndex;
 
-			rays[index].origin += normalize(dot(rays[index].direct, hits[index].normal) * hits[index].normal) * 0.0001f;
+						newRay.direct = randomCosineWeightedDirectionInHemisphere(normalized, _index);
+
+						if (newRay.origin.x > 1.0 - 0.0001f) {
+							newRay.color *= pow(float3(0.5, 0.5, 1.0), 2.2);
+						}
+						else
+							if (newRay.origin.x < -1.0 + 0.0001f) {
+								newRay.color *= pow(float3(1.0, 0.5, 0.5), 2.2);
+							}
+							else {
+								newRay.color *= pow(float3(1.0, 1.0, 1.0), 2.2);
+							}
+
+							newRay.origin += normalize(dot(newRay.direct, hits[index].normal) * hits[index].normal) * 0.0001f;
+							newRay.applyed = 1;
+
+							rays[newIndex] = newRay;
+					}
+
+					rays[index].direct = randomCosineWeightedDirectionInHemisphere(normalized, _index);
+					if (rays[index].origin.x > 1.0 - 0.0001f) {
+						rays[index].color *= pow(float3(0.5, 0.5, 1.0), 2.2);
+					}
+					else
+						if (rays[index].origin.x < -1.0 + 0.0001f) {
+							rays[index].color *= pow(float3(1.0, 0.5, 0.5), 2.2);
+						}
+						else {
+							rays[index].color *= pow(float3(1.0, 1.0, 1.0), 2.2);
+						}
+				}
+			}
+
+			rays[index].origin += normalize(dot(rays[index].direct, normalized) * normalized) * 0.0001f;
 			rays[index].applyed = 1;
 		}
 		index = rays[index].prev;

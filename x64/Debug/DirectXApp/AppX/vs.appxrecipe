@@ -26,11 +26,11 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\DirectXApp.exe">
       <PackagePath>DirectXApp.exe</PackagePath>
-      <Modified>2015-06-11T08:26:51.630</Modified>
+      <Modified>2015-06-11T09:09:41.453</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\DirectXApp.winmd">
       <PackagePath>DirectXApp.winmd</PackagePath>
-      <Modified>2015-06-11T08:26:51.996</Modified>
+      <Modified>2015-06-11T09:09:41.799</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\DirectXApp\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
@@ -78,7 +78,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\diffuse.cso">
       <PackagePath>diffuse.cso</PackagePath>
-      <Modified>2015-06-11T08:19:43.918</Modified>
+      <Modified>2015-06-11T09:09:41.312</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\final.cso">
       <PackagePath>final.cso</PackagePath>
@@ -90,15 +90,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\light.cso">
       <PackagePath>light.cso</PackagePath>
-      <Modified>2015-06-11T08:18:26.662</Modified>
+      <Modified>2015-06-11T08:42:57.024</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\reflection.cso">
       <PackagePath>reflection.cso</PackagePath>
-      <Modified>2015-06-11T07:09:43.748</Modified>
+      <Modified>2015-06-11T08:42:37.648</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\refraction.cso">
       <PackagePath>refraction.cso</PackagePath>
-      <Modified>2015-06-11T07:09:43.939</Modified>
+      <Modified>2015-06-11T09:07:41.546</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\render.cso">
       <PackagePath>render.cso</PackagePath>
@@ -110,7 +110,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\cornell.cso">
       <PackagePath>cornell.cso</PackagePath>
-      <Modified>2015-06-11T08:21:33.433</Modified>
+      <Modified>2015-06-11T09:05:57.711</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\reset.cso">
       <PackagePath>reset.cso</PackagePath>

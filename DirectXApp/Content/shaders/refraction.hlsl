@@ -24,7 +24,7 @@ float4 main(PixelShaderInput input) : SV_TARGET
 			rays[index].origin += rays[index].direct * hits[index].distance;
 
 			float inIor = 1.0;
-			float outIor = 1.3333;
+			float outIor = 1.33333;
 
 			float factor = dot(rays[index].direct, hits[index].normal);
 			if (factor > 0) {
@@ -46,7 +46,7 @@ float4 main(PixelShaderInput input) : SV_TARGET
 				rays[index].direct = refraction;
 			}
 
-			rays[index].origin += normalize(dot(rays[index].direct, hits[index].normal) * hits[index].normal) * 0.0001f;
+			rays[index].origin += normalize(dot(rays[index].direct, normalized) * normalized) * 0.0001f;
 			rays[index].applyed = 1;
 		}
 		index = rays[index].prev;

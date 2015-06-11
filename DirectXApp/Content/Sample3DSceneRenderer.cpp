@@ -493,12 +493,12 @@ void Sample3DSceneRenderer::CreateWindowSizeDependentResources()
 	XMMATRIX orientationMatrix = XMLoadFloat4x4(&orientation);
 
 	float aspectRatio = max(outputSize.Width / outputSize.Height, outputSize.Height / outputSize.Width);
-	float fovAngleY = 70.0f * XM_PI / 180.0f;
+	float fovAngleY = 60.0f * XM_PI / 180.0f;
 
 	XMMATRIX perspectiveMatrix = XMMatrixPerspectiveFovRH(fovAngleY, aspectRatio, 0.0001f, 10000.0f);
 	XMStoreFloat4x4(&m_constantBufferData.projection, XMMatrixTranspose(XMMatrixInverse(nullptr, perspectiveMatrix * orientationMatrix)));
 
-	static const XMVECTORF32 eye = { 0.8f, 0.0f, 0.2f, 1.0f };
+	static const XMVECTORF32 eye = { 0.0f, 0.0f, 2.0f, 1.0f };
 	static const XMVECTORF32 at = { 0.0f, 0.0f, 0.0f, 1.0f };
 	static const XMVECTORF32 up = { 0.0f, 1.0f, 0.0f, 1.0f };
 	XMStoreFloat4x4(&m_constantBufferData.view, XMMatrixTranspose(XMMatrixInverse(nullptr, XMMatrixLookAtRH(eye, at, up))));
@@ -580,23 +580,24 @@ void Sample3DSceneRenderer::Render()
 		for (int i = 0;i < 8;i++) {
 			useProgram(1);
 
+			/*
 			m_constantBufferData.origin = { 0.0f, 0.8f, 0.0f };
 			m_constantBufferData.radius = 0.2 - 0.0001f;
 			m_constantBufferData.primitiveType = 0;
 			m_constantBufferData.primitiveID = 2;
 			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
 			useProgram(2); //Interection shader (sphere)
+			*/
 
-
-			m_constantBufferData.origin = { -0.8f, -0.8f, 0.0f };
-			m_constantBufferData.radius = 0.2 - 0.0001f;
+			m_constantBufferData.origin = { 0.27f * 2.0f - 1.0f, 0.165f * 2.0f - 1.0f, 0.47f * 2.0f - 1.0f };
+			m_constantBufferData.radius = 0.16 * 2.0 - 0.0001f;
 			m_constantBufferData.primitiveType = 0;
 			m_constantBufferData.primitiveID = 3;
 			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
 			useProgram(2); //Interection shader (sphere)
 
-			m_constantBufferData.origin = { -0.8f, -0.8f, -0.8f };
-			m_constantBufferData.radius = 0.2 - 0.0001f;
+			m_constantBufferData.origin = { 0.73f * 2.0f - 1.0f, 0.165f * 2.0f - 1.0f, 0.78f * 2.0f - 1.0f };
+			m_constantBufferData.radius = 0.16 * 2.0 - 0.0001f;
 			m_constantBufferData.primitiveType = 0;
 			m_constantBufferData.primitiveID = 4;
 			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
@@ -617,9 +618,9 @@ void Sample3DSceneRenderer::Render()
 			useProgram(5); //Light shader
 
 			m_constantBufferData.primitiveID = 3;
-			m_constantBufferData.mcolor = { 0.25f, 0.75f, 0.25f };
+			m_constantBufferData.mcolor = { 1.0f, 1.0f, 1.0f };
 			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
-			useProgram(4); //Diffuse shader
+			useProgram(10); //Reflection shader
 
 			m_constantBufferData.primitiveID = 4;
 			m_constantBufferData.mcolor = { 1.0f, 1.0f, 1.0f };
