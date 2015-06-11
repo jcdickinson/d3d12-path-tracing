@@ -41,8 +41,14 @@ namespace DirectXApp
 		DirectX::XMFLOAT2 pos;
 	};
 
+	struct DoubleTyped {
+		double x;
+		double y;
+		double z;
+	};
+
 	struct Typed {
-		DirectX::XMFLOAT3 color;
+		DoubleTyped color;
 		unsigned seed;
 	};
 

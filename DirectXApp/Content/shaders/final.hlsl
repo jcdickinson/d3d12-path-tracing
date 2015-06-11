@@ -7,7 +7,7 @@ float4 main(PixelShaderInput input) : SV_TARGET
 	uint _index = resolution.x * intPos.y + intPos.x;
 	uint index = headers[_index].i;
 
-	float3 color = accum[_index].color.xyz;
+	double3 color = accum[_index].color.xyz;
 	float3 sampled = float3(0.0, 0.0, 0.0);
 
 	int counter = 0;
@@ -20,7 +20,7 @@ float4 main(PixelShaderInput input) : SV_TARGET
 		if (index == 0xFFFFFFFF) break;
 	}
 
-	accum[_index].color = color + sampled / counter;
+	accum[_index].color = color + double3(sampled) / double(counter);
 	
 	return float4(0.0, 0.0, 0.0, 0.0);
 }

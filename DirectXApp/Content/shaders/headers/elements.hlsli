@@ -34,7 +34,7 @@ struct Indice {
 };
 
 struct Typed {
-	float3 color;
+	double3 color;
 	uint seed;
 };
 
