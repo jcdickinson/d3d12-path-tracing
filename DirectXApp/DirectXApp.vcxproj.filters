@@ -125,5 +125,8 @@
     <FxCompile Include="reset.hlsl">
       <Filter>Content\shaders</Filter>
     </FxCompile>
+    <FxCompile Include="cornell.hlsl">
+      <Filter>Content\shaders</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

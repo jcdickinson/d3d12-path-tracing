@@ -86,7 +86,7 @@ void Sample3DSceneRenderer::CreateDeviceDependentResources()
 	Concurrency::task<void> createTask[20];
 	Concurrency::task<void> loadTask[20];
 
-	std::wstring shaders[] = { L"camera.cso", L"begin.cso", L"intersection.cso", L"background.cso", L"diffuse.cso", L"light.cso",L"final.cso", L"render.cso", L"clear.cso", L"refraction.cso", L"reflection.cso", L"reset.cso" };
+	std::wstring shaders[] = { L"camera.cso", L"begin.cso", L"intersection.cso", L"background.cso", L"diffuse.cso", L"light.cso",L"final.cso", L"render.cso", L"clear.cso", L"refraction.cso", L"reflection.cso", L"reset.cso", L"cornell.cso" };
 	shaderCount = _countof(shaders);
 
 	int it;
@@ -498,8 +498,8 @@ void Sample3DSceneRenderer::CreateWindowSizeDependentResources()
 	XMMATRIX perspectiveMatrix = XMMatrixPerspectiveFovRH(fovAngleY, aspectRatio, 0.0001f, 10000.0f);
 	XMStoreFloat4x4(&m_constantBufferData.projection, XMMatrixTranspose(XMMatrixInverse(nullptr, perspectiveMatrix * orientationMatrix)));
 
-	static const XMVECTORF32 eye = { 6.0f, 0.0f, -1.0f, 1.0f };
-	static const XMVECTORF32 at = { 0.0f, 0.0f, 1.0f, 1.0f };
+	static const XMVECTORF32 eye = { 0.8f, 0.0f, 0.2f, 1.0f };
+	static const XMVECTORF32 at = { 0.0f, 0.0f, 0.0f, 1.0f };
 	static const XMVECTORF32 up = { 0.0f, 1.0f, 0.0f, 1.0f };
 	XMStoreFloat4x4(&m_constantBufferData.view, XMMatrixTranspose(XMMatrixInverse(nullptr, XMMatrixLookAtRH(eye, at, up))));
 
@@ -580,71 +580,56 @@ void Sample3DSceneRenderer::Render()
 		for (int i = 0;i < 8;i++) {
 			useProgram(1);
 
-
-			m_constantBufferData.origin = { 0.0f, -1.0f, 0.0f };
-			m_constantBufferData.normal = { 0.0f, 1.0f, 0.0f };
-			m_constantBufferData.primitiveType = 1;
-			m_constantBufferData.primitiveID = 1;
-			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
-			useProgram(2); //Interection shader (diffuse plane)
-
-			m_constantBufferData.origin = { 1.0f, 0.0f, 0.0f };
-			m_constantBufferData.radius = 0.5;
+			m_constantBufferData.origin = { 0.0f, 0.8f, 0.0f };
+			m_constantBufferData.radius = 0.2 - 0.0001f;
 			m_constantBufferData.primitiveType = 0;
 			m_constantBufferData.primitiveID = 2;
 			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
 			useProgram(2); //Interection shader (sphere)
 
 
-			m_constantBufferData.origin = { 0.0f, 0.0f, 2.0f };
-			m_constantBufferData.radius = 0.9;
+			m_constantBufferData.origin = { -0.8f, -0.8f, 0.0f };
+			m_constantBufferData.radius = 0.2 - 0.0001f;
 			m_constantBufferData.primitiveType = 0;
 			m_constantBufferData.primitiveID = 3;
 			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
 			useProgram(2); //Interection shader (sphere)
 
-			m_constantBufferData.origin = { 0.0f, 0.0f, -2.0f };
-			m_constantBufferData.radius = 0.9;
+			m_constantBufferData.origin = { -0.8f, -0.8f, -0.8f };
+			m_constantBufferData.radius = 0.2 - 0.0001f;
 			m_constantBufferData.primitiveType = 0;
 			m_constantBufferData.primitiveID = 4;
 			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
 			useProgram(2); //Interection shader (sphere)
 
-			/*
-			m_constantBufferData.origin = { 0.0f, 2.0f, 1.0f };
+			m_constantBufferData.radius = 2;
+			m_constantBufferData.origin = { 0.0f, 0.0f, 0.0f };
 			m_constantBufferData.count = 36 / 3;
 			m_constantBufferData.primitiveType = 2;
 			m_constantBufferData.primitiveID = 5;
 			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
 			useProgram(2); //Interection shader (polygon)
-			*/
+			
 			useProgram(3); //Background shader
-
-			m_constantBufferData.primitiveID = 1;
-			m_constantBufferData.mcolor = { 1.0f, 1.0f, 1.0f };
-			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
-			useProgram(4); //Diffuse shader
 
 			m_constantBufferData.primitiveID = 2;
 			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
 			useProgram(5); //Light shader
 
-
 			m_constantBufferData.primitiveID = 3;
-			m_constantBufferData.mcolor = { 0.9f, 0.2f, 0.2f };
+			m_constantBufferData.mcolor = { 0.25f, 0.75f, 0.25f };
 			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
 			useProgram(4); //Diffuse shader
 
 			m_constantBufferData.primitiveID = 4;
 			m_constantBufferData.mcolor = { 1.0f, 1.0f, 1.0f };
 			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
-			//useProgram(4); //Diffuse shader
-			useProgram(9); //Refraction shader
+			useProgram(9); 
 
+			//Cornell box
 			m_constantBufferData.primitiveID = 5;
-			m_constantBufferData.mcolor = { 0.1f, 0.9f, 0.1f };
 			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
-			useProgram(4); //Diffuse shader
+			useProgram(12); 
 
 
 		}

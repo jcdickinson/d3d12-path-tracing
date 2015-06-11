@@ -20,17 +20,17 @@
     <AppXManifest Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-06-10T16:09:44.280</Modified>
+      <Modified>2015-06-11T08:14:49.499</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\DirectXApp.exe">
       <PackagePath>DirectXApp.exe</PackagePath>
-      <Modified>2015-06-11T06:43:00.862</Modified>
+      <Modified>2015-06-11T08:26:51.630</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\DirectXApp.winmd">
       <PackagePath>DirectXApp.winmd</PackagePath>
-      <Modified>2015-06-11T06:43:01.332</Modified>
+      <Modified>2015-06-11T08:26:51.996</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\DirectXApp\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
@@ -62,11 +62,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\background.cso">
       <PackagePath>background.cso</PackagePath>
-      <Modified>2015-06-11T06:24:39.145</Modified>
+      <Modified>2015-06-11T07:09:42.874</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\begin.cso">
       <PackagePath>begin.cso</PackagePath>
-      <Modified>2015-06-11T06:24:39.246</Modified>
+      <Modified>2015-06-11T07:09:42.981</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\camera.cso">
       <PackagePath>camera.cso</PackagePath>
@@ -78,27 +78,27 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\diffuse.cso">
       <PackagePath>diffuse.cso</PackagePath>
-      <Modified>2015-06-11T06:29:17.932</Modified>
+      <Modified>2015-06-11T08:19:43.918</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\final.cso">
       <PackagePath>final.cso</PackagePath>
-      <Modified>2015-06-11T06:24:39.534</Modified>
+      <Modified>2015-06-11T07:09:43.312</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\intersection.cso">
       <PackagePath>intersection.cso</PackagePath>
-      <Modified>2015-06-11T06:24:39.697</Modified>
+      <Modified>2015-06-11T08:13:53.611</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\light.cso">
       <PackagePath>light.cso</PackagePath>
-      <Modified>2015-06-11T06:24:39.834</Modified>
+      <Modified>2015-06-11T08:18:26.662</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\reflection.cso">
       <PackagePath>reflection.cso</PackagePath>
-      <Modified>2015-06-11T06:24:39.967</Modified>
+      <Modified>2015-06-11T07:09:43.748</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\refraction.cso">
       <PackagePath>refraction.cso</PackagePath>
-      <Modified>2015-06-11T06:24:40.166</Modified>
+      <Modified>2015-06-11T07:09:43.939</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\render.cso">
       <PackagePath>render.cso</PackagePath>
@@ -108,13 +108,17 @@
       <PackagePath>quad.cso</PackagePath>
       <Modified>2015-06-10T12:42:42.255</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\cornell.cso">
+      <PackagePath>cornell.cso</PackagePath>
+      <Modified>2015-06-11T08:21:33.433</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\reset.cso">
       <PackagePath>reset.cso</PackagePath>
       <Modified>2015-06-10T18:44:13.240</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-06-10T16:09:44.142</Modified>
+      <Modified>2015-06-11T08:14:49.319</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

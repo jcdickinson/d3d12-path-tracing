@@ -45,9 +45,9 @@ float intersectTriangle(in Ray ray, in float3 _vertices[3], out float3 normal){
 	float r, a, b; 
 
 	float3 vertices[3];
-	vertices[0] = _vertices[0] + origin;
-	vertices[1] = _vertices[1] + origin;
-	vertices[2] = _vertices[2] + origin;
+	vertices[0] = _vertices[0] * radius + origin;
+	vertices[1] = _vertices[1] * radius + origin;
+	vertices[2] = _vertices[2] * radius + origin;
 
 	u = vertices[1] - vertices[0];
 	v = vertices[2] - vertices[0];
@@ -123,7 +123,7 @@ float4 main(PixelShaderInput input) : SV_TARGET
 	uint index = headers[_index].i;
 
 	int counter = 0;
-	while (counter < 20 && index != 0xFFFFFFFF) {
+	while (counter < 100 && index != 0xFFFFFFFF) {
 		if (rays[index].active == 1) {
 			float distance = 10000.0f;
 			float3 _normal = float3(0.0, 0.0, 0.0);

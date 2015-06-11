@@ -11,7 +11,7 @@ float4 main(PixelShaderInput input) : SV_TARGET
 	float3 sampled = float3(0.0, 0.0, 0.0);
 
 	int counter = 0;
-	while (counter < 20 && index != 0xFFFFFFFF) {
+	while (counter < 100 && index != 0xFFFFFFFF) {
 		sampled += rays[index].final;
 		rays[index].active = 0;
 

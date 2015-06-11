@@ -9,12 +9,12 @@ float4 main(PixelShaderInput input) : SV_TARGET
 	uint index = headers[_index].i;
 
 	int counter = 0;
-	while (counter < 20 && index != 0xFFFFFFFF) {
+	while (counter < 100 && index != 0xFFFFFFFF) {
 		if (rays[index].active == 1 && hits[index].meshID == primitiveID) {
 			rays[index].origin += rays[index].direct * hits[index].distance;
 			rays[index].direct = randomCosineWeightedDirectionInHemisphere(hits[index].normal, index);
 
-			rays[index].final = rays[index].color * pow(mcolor, 2.2);
+			rays[index].final = rays[index].color * pow(mcolor, 2.2) / pow(0.2, 2.0);
 			rays[index].active = 0;
 
 			rays[index].origin += normalize(dot(rays[index].direct, hits[index].normal) * hits[index].normal) * 0.0001f;
