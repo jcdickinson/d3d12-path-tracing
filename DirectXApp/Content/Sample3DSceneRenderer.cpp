@@ -610,13 +610,14 @@ void Sample3DSceneRenderer::Render()
 			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
 			useProgram(2); //Interection shader (sphere)
 
+			/*
 			m_constantBufferData.origin = { 0.0f, 2.0f, 1.0f };
 			m_constantBufferData.count = 36 / 3;
 			m_constantBufferData.primitiveType = 2;
 			m_constantBufferData.primitiveID = 5;
 			memcpy(m_mappedConstantBuffer, &m_constantBufferData, sizeof(m_constantBufferData));
 			useProgram(2); //Interection shader (polygon)
-
+			*/
 			useProgram(3); //Background shader
 
 			m_constantBufferData.primitiveID = 1;

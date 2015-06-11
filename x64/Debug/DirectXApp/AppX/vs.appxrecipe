@@ -26,11 +26,11 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\DirectXApp.exe">
       <PackagePath>DirectXApp.exe</PackagePath>
-      <Modified>2015-06-11T06:29:18.055</Modified>
+      <Modified>2015-06-11T06:43:00.862</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\x64\Debug\DirectXApp\DirectXApp.winmd">
       <PackagePath>DirectXApp.winmd</PackagePath>
-      <Modified>2015-06-11T06:29:18.397</Modified>
+      <Modified>2015-06-11T06:43:01.332</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\acterhd\Documents\C++\DirectXApp\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
